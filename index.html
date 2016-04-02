@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Hotel</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js'></script>
+    <script src="js/index.js"></script>
+  </head>
+
+  <body>
+
+    <html ng-app="root">
+      <div class="container" ng-controller="index">
+
+		  <div class="box margin-right" id="shopping-list">
+		    <h1>Customer's Data</h1>
+
+		    <div class="half margin-right">
+		      <input type='text'   class="searchButton" placeholder='Name' ng-model="cusName" autofocus required>
+		    </div>
+        <div class="half">
+          <input type='text'   class="searchButton" placeholder='Surname' ng-model="cusSur" required>
+        </div>
+		     <div class="half margin-right">
+		     	<input type='tel' class="searchButton margin-right" placeholder='Tel' ng-model="cusTel" required>
+		    </div>
+        <div class="dollar half">
+          <select class="searchButton" ng-model="cusRoom" required>
+            <option value="0" select>select room</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+		    </div>
+
+		    <button id="addItem" ng-click="addItem()">Reserve</button>
+
+		    <div class="list">
+		      <table border="0" cellspacing="0">
+		        <tr class="table-header">
+		          <td class="left">Name</td>
+		          <td class="left">Surname</td>
+		          <td>Tel</td>
+		          <td class="center">Room</td>
+		          <td class="center">Delete</td>
+		        </tr>
+		        <tr ng-repeat="item in list">
+		          <td ng-class="{selected: item.checked==true}">{{item.name}}</td>
+		          <td ng-class="{selected: item.checked==true}" class="left">{{item.surname}}</td>
+		          <td ng-class="{selected: item.checked==true}" class="center">{{item.tel}}</td>
+		          <td ng-class="{selected: item.checked==true}">{{item.room}}</td>
+		          <td><button class="btn btn-danger glyphicon glyphicon-trash" ng-click="remove(item)"></button></td>
+		        </tr>
+		      </table>
+		      <div ng-hide="list.length" class="center">Your shopping list is empty.</div>
+		      <button class="clear" ng-click="clearAll(list)">Clear Shopping List</button>
+		    </div>
+		  </div>
+		</div>
+</html>
+
+
+
+
+  </body>
+</html>
